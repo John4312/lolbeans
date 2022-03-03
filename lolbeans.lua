@@ -794,7 +794,7 @@ farmt:CreateToggle("Auto Honeystorm", nil, function(State) kocmoc.toggles.honeys
 
 
 local mobkill = combtab:CreateSection("Combat")
-mobkill:CreateToggle("Train Tunnel Bear", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(397, 7, -46) api.tween(10, CFrame.new(552, 7, -50) end end)
+mobkill:CreateToggle("Train Tunnel Bear", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(397, 7, -46) print('tweening') api.tween(1, CFrame.new(552, 7, -50) end end)
 mobkill:CreateToggle("Train King Beetle", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(185, 5, 151) end end)
 mobkill:CreateToggle("Train Crab", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(-307.52117919922, 107.91863250732, 467.86791992188) end end)
 mobkill:CreateToggle("Train Snail", nil, function(State) fd = game.Workspace.FlowerZones['Stump Field'] if State then api.humanoidrootpart().CFrame = CFrame.new(fd.Position.X, fd.Position.Y-6, fd.Position.Z) else api.humanoidrootpart().CFrame = CFrame.new(fd.Position.X, fd.Position.Y+2, fd.Position.Z) end end)
