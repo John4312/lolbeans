@@ -1,5 +1,5 @@
 -- API CALLS
-print('V002')
+print('V003')
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/John4312/lolbeans/main/library.lua"))()
 local api = loadstring(game:HttpGet("https://raw.githubusercontent.com/John4312/lolbeans/main/api.lua"))()
 local bssapi = loadstring(game:HttpGet("https://raw.githubusercontent.com/John4312/lolbeans/main/bssapi.lua"))()
@@ -218,7 +218,7 @@ commandopart.Name = "Commando Part"
 commandopart.Anchored = true
 commandopart.Transparency = 1
 commandopart.Size = Vector3.new(10, 1, 10)
-commandopart.Position = Vector3.new(517.7685546875, 77.06419372558594, 159.54177856445312)
+commandopart.Position = Vector3.new(517.7685546875, 60.06419372558594, 159.54177856445312)
 
 --tunnelbear
 local tunnelpart = Instance.new("Part", game:GetService("Workspace"))
@@ -830,7 +830,7 @@ farmt:CreateToggle("Auto Honey Wreath", nil, function(State) kocmoc.toggles.auto
 
 
 local mobkill = combtab:CreateSection("Combat")
-mobkill:CreateToggle("Train Commando Chick", nil, function(State) kocmoc.toggles.commandochick = State; if State then api.humanoidrootpart().CFrame = CFrame.new(517.7685546875, 78.06419372558594, 159.54177856445312) end end)
+mobkill:CreateToggle("Train Commando Chick", nil, function(State) kocmoc.toggles.commandochick = State; if State then api.humanoidrootpart().CFrame = CFrame.new(517.7685546875, 61.06419372558594, 159.54177856445312) end end)
 mobkill:CreateToggle("Train Tunnel Bear", nil, function(State) if State then pcall(function() game:GetService("Workspace").Decorations.TrapTunnel["Tunnel Ceiling"]:Destroy() end) api.humanoidrootpart().CFrame = CFrame.new(383.9188232421875, 30.60200309753418, -44.653629302978516) end end)
 mobkill:CreateToggle("Train King Beetle", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(142.13784790039062, 4.547219753265381, 165.29922485351562) wait(5) api.humanoidrootpart().CFrame = CFrame.new(108.72220611572266, 14.494433403015137, 247.42633056640625) end end)
 mobkill:CreateToggle("Train Crab", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(-307.52117919922, 107.91863250732, 467.86791992188) end end)
