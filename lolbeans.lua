@@ -1,5 +1,5 @@
 -- API CALLS
-print('yes')
+print('V001')
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/John4312/lolbeans/main/library.lua"))()
 local api = loadstring(game:HttpGet("https://raw.githubusercontent.com/John4312/lolbeans/main/api.lua"))()
 local bssapi = loadstring(game:HttpGet("https://raw.githubusercontent.com/John4312/lolbeans/main/bssapi.lua"))()
@@ -320,6 +320,7 @@ local kocmoc = {
         autodonate = false,
         plantsprouts = false,
         autohoneywreath = false,
+        commandochick = false,
     },
     vars = {
         field = "Ant Field",
@@ -829,7 +830,7 @@ farmt:CreateToggle("Auto Honey Wreath", nil, function(State) kocmoc.toggles.auto
 
 
 local mobkill = combtab:CreateSection("Combat")
-mobkill:CreateToggle("Train Commando Chick", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(517.7685546875, 77.06419372558594, 159.54177856445312) end end)
+mobkill:CreateToggle("Train Commando Chick", nil, function(State) kocmoc.toggles.commandochick = State; if State then api.humanoidrootpart().CFrame = CFrame.new(517.7685546875, 78.06419372558594, 159.54177856445312) end end)
 mobkill:CreateToggle("Train Tunnel Bear", nil, function(State) if State then pcall(function() game:GetService("Workspace").Decorations.TrapTunnel["Tunnel Ceiling"]:Destroy() end) api.humanoidrootpart().CFrame = CFrame.new(383.9188232421875, 30.60200309753418, -44.653629302978516) end end)
 mobkill:CreateToggle("Train King Beetle", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(142.13784790039062, 4.547219753265381, 165.29922485351562) wait(5) api.humanoidrootpart().CFrame = CFrame.new(108.72220611572266, 14.494433403015137, 247.42633056640625) end end)
 mobkill:CreateToggle("Train Crab", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(-307.52117919922, 107.91863250732, 467.86791992188) end end)
@@ -1382,17 +1383,37 @@ local vu = game:GetService("VirtualUser")
 game:GetService("Players").LocalPlayer.Idled:connect(function() vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)task.wait(1)vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
 
-task.spawn(function()while task.wait() do
-    if kocmoc.toggles.farmsnowflakes then
-        task.wait(3)
-        for i,v in next, temptable.tokenpath:GetChildren() do
-            if v:FindFirstChildOfClass("Decal") and v:FindFirstChildOfClass("Decal").Texture == "rbxassetid://6087969886" and v.Transparency == 0 then
-                api.humanoidrootpart().CFrame = CFrame.new(v.Position.X, v.Position.Y+3, v.Position.Z)
-                break
+task.spawn(function()
+    while task.wait() do
+        if kocmoc.toggles.farmsnowflakes then
+            task.wait(3)
+            for i,v in next, temptable.tokenpath:GetChildren() do
+                if v:FindFirstChildOfClass("Decal") and v:FindFirstChildOfClass("Decal").Texture == "rbxassetid://6087969886" and v.Transparency == 0 then
+                    api.humanoidrootpart().CFrame = CFrame.new(v.Position.X, v.Position.Y+3, v.Position.Z)
+                    break
+                end
+            end
+        end
+    end 
+end)
+
+task.spawn(function()
+    while task.wait() do
+        if kocmoc.toggles.commandochick then
+            local a
+            for i,v in pairs(game:GetService("Workspace").Map.Ground.BrownBearCorner:GetChildren()) do
+                if v:FindFirstChild('SurfaceLight') then
+                    a = v
+                    for i,v in pairs(game.Workspace.Collectibles:GetChildren()) do
+                        if (v.Position-a.Position).magnitude < 100 and v.CFrame.YVector.Y == 1 then
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                        end
+                    end
+                end
             end
         end
     end
-end end)
+end)
 
 game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
     humanoid = char:WaitForChild("Humanoid")
