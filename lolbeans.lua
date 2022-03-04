@@ -1,5 +1,5 @@
 -- API CALLS
-print('V001')
+print('V002')
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/John4312/lolbeans/main/library.lua"))()
 local api = loadstring(game:HttpGet("https://raw.githubusercontent.com/John4312/lolbeans/main/api.lua"))()
 local bssapi = loadstring(game:HttpGet("https://raw.githubusercontent.com/John4312/lolbeans/main/bssapi.lua"))()
@@ -1405,7 +1405,7 @@ task.spawn(function()
                 if v:FindFirstChild('SurfaceLight') then
                     a = v
                     for i,v in pairs(game.Workspace.Collectibles:GetChildren()) do
-                        if (v.Position-a.Position).magnitude < 100 and v.CFrame.YVector.Y == 1 then
+                        if (v.Position-a.Position).magnitude < 30 and v.CFrame.YVector.Y == 1 then
                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
                         end
                     end
