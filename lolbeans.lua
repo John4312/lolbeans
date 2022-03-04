@@ -286,6 +286,7 @@ local kocmoc = {
         disableconversion = false,
         autodonate = false,
         plantsprouts = false,
+        autohoneywreath = false,
     },
     vars = {
         field = "Ant Field",
@@ -793,6 +794,8 @@ farmt:CreateToggle("Auto Accept/Confirm Quests ⚙", nil, function(State) kocmoc
 farmt:CreateToggle("Auto Do Quests ⚙", nil, function(State) kocmoc.toggles.autodoquest = State end)
 farmt:CreateToggle("Auto Honeystorm", nil, function(State) kocmoc.toggles.honeystorm = State end)
 farmt:CreateToggle("Auto Plant Sprouts", nil, function(State) kocmoc.toggles.plantsprouts = State end)
+farmt:CreateToggle("Auto Honey Wreath", nil, function(State) kocmoc.toggles.autohoneywreath = State end)
+
 
 
 local mobkill = combtab:CreateSection("Combat")
@@ -1294,6 +1297,15 @@ task.spawn(function() while task.wait(1) do
             donateToShrine(kocmoc.vars.donoItem,kocmoc.vars.donoAmount)
             end
         end
+        if kocmoc.toggles.autohoneywreath then
+            game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Honey Bee Wreath")
+            platformm = game:GetService("Workspace").Toys["Honey Bee Wreath"].Platform
+            for i,v in pairs(game.Workspace.Collectibles:GetChildren()) do
+                if (v.Position-platformm.Position).magnitude < 25 and v.CFrame.YVector.Y == 1 then
+                    api.humanoidrootpart().CFrame = v.CFrame
+                end
+            end
+        end
     end
 end end)
 
@@ -1301,7 +1313,7 @@ task.spawn(function() while task.wait(1) do
     temptable.runningfor = temptable.runningfor + 1
     temptable.honeycurrent = statsget().Totals.Honey
     if kocmoc.toggles.honeystorm then game.ReplicatedStorage.Events.ToyEvent:FireServer("Honeystorm") end
-    if kocmoc.toggles.plantsprouts then game.ReplicatedStorage.Events.ToyEvent:FireServer("Special Sprout") end
+    if kocmoc.toggles.plantsprouts then game.ReplicatedStorage.Events.ToyEvent:FireServer("Sprout Summoner") end
     if kocmoc.toggles.collectgingerbreads then game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Gingerbread House") end
     if kocmoc.toggles.autodispense then
         if kocmoc.dispensesettings.rj then local A_1 = "Free Royal Jelly Dispenser" local Event = game:GetService("ReplicatedStorage").Events.ToyEvent Event:FireServer(A_1) end
