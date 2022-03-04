@@ -1,5 +1,5 @@
 -- API CALLS
-
+print('updated')
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/John4312/lolbeans/main/library.lua"))()
 local api = loadstring(game:HttpGet("https://raw.githubusercontent.com/John4312/lolbeans/main/api.lua"))()
 local bssapi = loadstring(game:HttpGet("https://raw.githubusercontent.com/John4312/lolbeans/main/bssapi.lua"))()
@@ -216,15 +216,15 @@ local tunnelpart = Instance.new("Part", game:GetService("Workspace"))
 tunnelpart.Name = "Tunnel Part"
 tunnelpart.Anchored = true
 tunnelpart.Transparency = 1
-tunnelpart.Size = Vector3.new(10, 1, 10)
+tunnelpart.Size = Vector3.new(100, 1, 100)
 tunnelpart.Position = Vector3.new(383.9188232421875, 28.60200309753418, -44.653629302978516)
 
 local tunnelpart2 = Instance.new("Part", game:GetService("Workspace"))
 tunnelpart2.Name = "Tunnel Part"
 tunnelpart2.Anchored = true
 tunnelpart2.Transparency = 1
-tunnelpart2.Size = Vector3.new(10, 1, 10)
-tunnelpart2.Position = Vector3.new(383.9188232421875, 29.60200309753418, -44.653629302978516)
+tunnelpart2.Size = Vector3.new(100, 1, 100)
+tunnelpart2.Position = Vector3.new(383.9188232421875, 28.60200309753418, -44.653629302978516)
 
 
 --king beetle
