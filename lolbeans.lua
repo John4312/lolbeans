@@ -1,8 +1,8 @@
 -- API CALLS
 
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Boxking776/kocmoc/main/library.lua"))()
-local api = loadstring(game:HttpGet("https://raw.githubusercontent.com/Boxking776/kocmoc/main/api.lua"))()
-local bssapi = loadstring(game:HttpGet("https://raw.githubusercontent.com/Boxking776/kocmoc/main/bssapi.lua"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/John4312/lolbeans/main/library.lua"))()
+local api = loadstring(game:HttpGet("https://raw.githubusercontent.com/John4312/lolbeans/main/api.lua"))()
+local bssapi = loadstring(game:HttpGet("https://raw.githubusercontent.com/John4312/lolbeans/main/bssapi.lua"))()
 
 if not isfolder("kocmoc") then makefolder("kocmoc") end
 if isfile('kocmoc2.txt') == false then (syn and syn.request or http_request)({ Url = "http://127.0.0.1:6463/rpc?v=1",Method = "POST",Headers = {["Content-Type"] = "application/json",["Origin"] = "https://discord.com"},Body = game:GetService("HttpService"):JSONEncode({cmd = "INVITE_BROWSER",args = {code = "kTNMzbxUuZ"},nonce = game:GetService("HttpService"):GenerateGUID(false)}),writefile('kocmoc2.txt', "discord")})end
@@ -768,8 +768,6 @@ information:CreateLabel("Place version: "..game.PlaceVersion)
 information:CreateLabel("Script by Boxking776")
 information:CreateLabel("Originally by weuz_ and mrdevl")
 local gainedhoneylabel = information:CreateLabel("Gained Honey: 0")
-information:CreateButton("Discord Invite", function() setclipboard("https://discord.gg/kTNMzbxUuZ") end)
-information:CreateButton("Donation", function() setclipboard("https://www.paypal.com/paypalme/GHubPay") end)
 information:CreateLabel("")
 information:CreateLabel("The script will continue to be updated")
 information:CreateLabel("under new ownership.")
@@ -817,8 +815,8 @@ farmt:CreateToggle("Auto Honey Wreath", nil, function(State) kocmoc.toggles.auto
 
 local mobkill = combtab:CreateSection("Combat")
 mobkill:CreateToggle("Train Tunnel Bear", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(397, 7, -46) wait(3) api.tween(2, CFrame.new(383.44427490234375, 28.160554885864258, -44.83742141723633)) end end)
-mobkill:CreateToggle("Train King Beetle", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(-183.58981323242188, 240.91287231445312, 306.2699890136719) end end)
-mobkill:CreateToggle("Train Crab", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(175.0200653076172, 26.484851837158203, 161.5023193359375) end end)
+mobkill:CreateToggle("Train King Beetle", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(175.0200653076172, 26.484851837158203, 161.5023193359375) end end)
+mobkill:CreateToggle("Train Crab", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(-307.52117919922, 107.91863250732, 467.86791992188) end end)
 mobkill:CreateToggle("Train Snail", nil, function(State) fd = game.Workspace.FlowerZones['Stump Field'] if State then api.humanoidrootpart().CFrame = CFrame.new(fd.Position.X, fd.Position.Y-6, fd.Position.Z) else api.humanoidrootpart().CFrame = CFrame.new(fd.Position.X, fd.Position.Y+2, fd.Position.Z) end end)
 mobkill:CreateToggle("Kill Mondo", nil, function(State) kocmoc.toggles.killmondo = State end)
 mobkill:CreateToggle("Kill Vicious", nil, function(State) kocmoc.toggles.killvicious = State end)
