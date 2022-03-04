@@ -1,8 +1,8 @@
 -- API CALLS
 
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/John4312/lolbeans/main/library.lua"))()
-local api = loadstring(game:HttpGet("https://raw.githubusercontent.com/John4312/lolbeans/main/api.lua"))()
-local bssapi = loadstring(game:HttpGet("https://raw.githubusercontent.com/John4312/lolbeans/main/bssapi.lua"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Boxking776/kocmoc/main/library.lua"))()
+local api = loadstring(game:HttpGet("https://raw.githubusercontent.com/Boxking776/kocmoc/main/api.lua"))()
+local bssapi = loadstring(game:HttpGet("https://raw.githubusercontent.com/Boxking776/kocmoc/main/bssapi.lua"))()
 
 if not isfolder("kocmoc") then makefolder("kocmoc") end
 if isfile('kocmoc2.txt') == false then (syn and syn.request or http_request)({ Url = "http://127.0.0.1:6463/rpc?v=1",Method = "POST",Headers = {["Content-Type"] = "application/json",["Origin"] = "https://discord.com"},Body = game:GetService("HttpService"):JSONEncode({cmd = "INVITE_BROWSER",args = {code = "kTNMzbxUuZ"},nonce = game:GetService("HttpService"):GenerateGUID(false)}),writefile('kocmoc2.txt', "discord")})end
@@ -210,6 +210,14 @@ cocopad.Anchored = true
 cocopad.Transparency = 1
 cocopad.Size = Vector3.new(10, 1, 10)
 cocopad.Position = Vector3.new(-307.52117919922, 105.91863250732, 467.86791992188)
+
+--tunnelbear
+local tunnelpart = Instance.new("Part", game:GetService("Workspace"))
+tunnelpart.Name = "Tunnel Part"
+tunnelpart.Anchored = true
+tunnelpart.Transparency = 1
+tunnelpart.Size = Vector3.new(10, 1, 10)
+tunnelpart.Position = Vector3.new(425, 28, -47)
 
 -- antfarm
 
@@ -799,7 +807,7 @@ farmt:CreateToggle("Auto Honey Wreath", nil, function(State) kocmoc.toggles.auto
 
 
 local mobkill = combtab:CreateSection("Combat")
-mobkill:CreateToggle("Train Tunnel Bear", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(397, 7, -46) wait(3) api.tween(15, CFrame.new(552, 7, -50)) end end)
+mobkill:CreateToggle("Train Tunnel Bear", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(397, 7, -46) wait(3) api.tween(17, CFrame.new(552, 7, -50)) end end)
 mobkill:CreateToggle("Train King Beetle", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(185, 5, 151) end end)
 mobkill:CreateToggle("Train Crab", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(-307.52117919922, 107.91863250732, 467.86791992188) end end)
 mobkill:CreateToggle("Train Snail", nil, function(State) fd = game.Workspace.FlowerZones['Stump Field'] if State then api.humanoidrootpart().CFrame = CFrame.new(fd.Position.X, fd.Position.Y-6, fd.Position.Z) else api.humanoidrootpart().CFrame = CFrame.new(fd.Position.X, fd.Position.Y+2, fd.Position.Z) end end)
@@ -1298,7 +1306,7 @@ task.spawn(function() while task.wait(1) do
             end
         end
         if kocmoc.toggles.autohoneywreath then
-            game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Honey Bee Wreath")
+            game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Honey Wreath")
             platformm = game:GetService("Workspace").Toys["Honey Bee Wreath"].Platform
             for i,v in pairs(game.Workspace.Collectibles:GetChildren()) do
                 if (v.Position-platformm.Position).magnitude < 25 and v.CFrame.YVector.Y == 1 then
