@@ -285,6 +285,7 @@ local kocmoc = {
         godmode = false,
         disableconversion = false,
         autodonate = false,
+        plantsprouts = false,
     },
     vars = {
         field = "Ant Field",
@@ -791,10 +792,11 @@ farmt:CreateToggle("Teleport To Rares ⚠️", nil, function(State) kocmoc.toggl
 farmt:CreateToggle("Auto Accept/Confirm Quests ⚙", nil, function(State) kocmoc.toggles.autoquest = State end)
 farmt:CreateToggle("Auto Do Quests ⚙", nil, function(State) kocmoc.toggles.autodoquest = State end)
 farmt:CreateToggle("Auto Honeystorm", nil, function(State) kocmoc.toggles.honeystorm = State end)
+farmt:CreateToggle("Auto Plant Sprouts", nil, function(State) kocmoc.toggles.plantsprouts = State end)
 
 
 local mobkill = combtab:CreateSection("Combat")
-mobkill:CreateToggle("Train Tunnel Bear", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(397, 7, -46) print('tweening') api.tween(10, CFrame.new(552, 7, -50)) end end)
+mobkill:CreateToggle("Train Tunnel Bear", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(397, 7, -46) wait(3) api.tween(15, CFrame.new(552, 7, -50)) end end)
 mobkill:CreateToggle("Train King Beetle", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(185, 5, 151) end end)
 mobkill:CreateToggle("Train Crab", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(-307.52117919922, 107.91863250732, 467.86791992188) end end)
 mobkill:CreateToggle("Train Snail", nil, function(State) fd = game.Workspace.FlowerZones['Stump Field'] if State then api.humanoidrootpart().CFrame = CFrame.new(fd.Position.X, fd.Position.Y-6, fd.Position.Z) else api.humanoidrootpart().CFrame = CFrame.new(fd.Position.X, fd.Position.Y+2, fd.Position.Z) end end)
@@ -1299,6 +1301,7 @@ task.spawn(function() while task.wait(1) do
     temptable.runningfor = temptable.runningfor + 1
     temptable.honeycurrent = statsget().Totals.Honey
     if kocmoc.toggles.honeystorm then game.ReplicatedStorage.Events.ToyEvent:FireServer("Honeystorm") end
+    if kocmoc.toggles.plantsprouts then game.ReplicatedStorage.Events.ToyEvent:FireServer("Special Sprout") end
     if kocmoc.toggles.collectgingerbreads then game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Gingerbread House") end
     if kocmoc.toggles.autodispense then
         if kocmoc.dispensesettings.rj then local A_1 = "Free Royal Jelly Dispenser" local Event = game:GetService("ReplicatedStorage").Events.ToyEvent Event:FireServer(A_1) end
