@@ -217,7 +217,7 @@ tunnelpart.Name = "Tunnel Part"
 tunnelpart.Anchored = true
 tunnelpart.Transparency = 1
 tunnelpart.Size = Vector3.new(10, 1, 10)
-tunnelpart.Position = Vector3.new(383.9188232421875, 26.60200309753418, -44.653629302978516)
+tunnelpart.Position = Vector3.new(383.9188232421875, 28.60200309753418, -44.653629302978516)
 
 
 --king beetle
@@ -814,7 +814,7 @@ farmt:CreateToggle("Auto Honey Wreath", nil, function(State) kocmoc.toggles.auto
 
 
 local mobkill = combtab:CreateSection("Combat")
-mobkill:CreateToggle("Train Tunnel Bear", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(383.9188232421875, 26.60200309753418, -44.653629302978516) end end)
+mobkill:CreateToggle("Train Tunnel Bear", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(383.9188232421875, 28.60200309753418, -44.653629302978516) end end)
 mobkill:CreateToggle("Train King Beetle", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(175.0200653076172, 24.484851837158203, 161.5023193359375) end end)
 mobkill:CreateToggle("Train Crab", nil, function(State) if State then api.humanoidrootpart().CFrame = CFrame.new(-307.52117919922, 107.91863250732, 467.86791992188) end end)
 mobkill:CreateToggle("Train Snail", nil, function(State) fd = game.Workspace.FlowerZones['Stump Field'] if State then api.humanoidrootpart().CFrame = CFrame.new(fd.Position.X, fd.Position.Y-6, fd.Position.Z) else api.humanoidrootpart().CFrame = CFrame.new(fd.Position.X, fd.Position.Y+2, fd.Position.Z) end end)
