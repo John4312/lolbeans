@@ -217,7 +217,7 @@ tunnelpart.Name = "Tunnel Part"
 tunnelpart.Anchored = true
 tunnelpart.Transparency = 1
 tunnelpart.Size = Vector3.new(10, 1, 10)
-tunnelpart.Position = Vector3.new(425, 28, -47)
+tunnelpart.Position = Vector3.new(425, 23, -47)
 
 -- antfarm
 
