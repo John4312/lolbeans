@@ -1,5 +1,5 @@
 -- API CALLS
-print('V003')
+print('updated')
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/John4312/lolbeans/main/library.lua"))()
 local api = loadstring(game:HttpGet("https://raw.githubusercontent.com/John4312/lolbeans/main/api.lua"))()
 local bssapi = loadstring(game:HttpGet("https://raw.githubusercontent.com/John4312/lolbeans/main/bssapi.lua"))()
@@ -282,9 +282,9 @@ local kocmoc = {
         killmondo = false,
         killvicious = false,
         loopspeed = false,
-        loopjump = false,
+        loopjumpe = false,
         autoquest = false,
-        autoboosters = false,
+        autoboosters = fals,
         autodispense = false,
         clock = false,
         freeantpass = false,
@@ -537,6 +537,8 @@ function farmant()
     antpart.CanCollide = false
 end
 
+
+
 function collectplanters()
     getplanters()
     for i,v in pairs(planterst.plantername) do
@@ -782,7 +784,7 @@ information:CreateLabel("Place version: "..game.PlaceVersion)
 information:CreateLabel("⚠️ - Not Safe Function")
 information:CreateLabel("⚙ - Configurable Function")
 information:CreateLabel("Place version: "..game.PlaceVersion)
-information:CreateLabel("Script by Boxking776")
+information:CreateLabel("This is an edited version of the script")
 information:CreateLabel("Originally by weuz_ and mrdevl")
 local gainedhoneylabel = information:CreateLabel("Gained Honey: 0")
 information:CreateLabel("")
@@ -1124,6 +1126,9 @@ task.spawn(function() while task.wait() do
         elseif tonumber(pollenpercentage) >= tonumber(kocmoc.vars.convertat) then
             if not kocmoc.toggles.disableconversion then
             temptable.tokensfarm = false
+            local yes = rtsg()["EquippedAccessories"]["Hat"]
+            local args = {[1] = "Equip",[2] = {["Mute"] = true,["Type"] = "Honey Mask",["Category"] = "Accessory"}}
+            game:GetService("ReplicatedStorage").Events.ItemPackageEvent:InvokeServer(unpack(args))
             api.tween(2, game:GetService("Players").LocalPlayer.SpawnPos.Value * CFrame.fromEulerAnglesXYZ(0, 110, 0) + Vector3.new(0, 0, 9))
             task.wait(2)
             temptable.converting = true
@@ -1137,6 +1142,7 @@ task.spawn(function() while task.wait() do
                     converthoney()
                 until gethiveballoon() == false or not kocmoc.toggles.convertballoons
             end
+            game.ReplicatedStorage.Events.ItemPackageEvent:InvokeServer("Equip",{["Mute"] = true,["Type"] = yes,["Category"] = "Accessory"})
             temptable.converting = false
             temptable.act = temptable.act + 1
             task.wait(6)
